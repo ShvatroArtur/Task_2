@@ -13,13 +13,11 @@ namespace Task2
             var separator = "------------------------------------";
             WorkerSentence workerSentence = new WorkerSentence();
             string textFilePath = ConfigurationManager.AppSettings["TextFilePath"];
-             var path = ConfigurationManager.AppSettings["TextFilePath"]; ;
-            //var path = @"c:\Repository\Task2.txt";
+            var path = ConfigurationManager.AppSettings["TextFilePath"]; ;
             Reader textReader = new Reader(path);
             if (textReader.ExistsFile())
             {
                 TextParser textParser = new TextParser(true);
-                //textReader.Read();
                 textReader.Read(textParser);
                 var text = textParser.Text;
 
@@ -39,7 +37,7 @@ namespace Task2
 
                 //Во всех вопросительных предложениях текста найти и напечатать без повторений слова заданной длины.
                 Console.WriteLine(separator);
-                foreach (var word in workerSentence.FindWordsInInterrogativeSentences(text.Sentences,2))
+                foreach (var word in workerSentence.FindWordsInInterrogativeSentences(text.Sentences, 2))
                 {
                     Console.WriteLine(word);
                 }
@@ -54,7 +52,7 @@ namespace Task2
 
                 //Из текста удалить все слова заданной длины, начинающиеся на согласную букву.
                 Console.WriteLine(separator);
-                workerSentence.DeleteWordsGivenLength(text.Sentences,5);
+                workerSentence.DeleteWordsGivenLength(text.Sentences, 5);
                 foreach (var word in text.Sentences)
                 {
                     Console.WriteLine(word);
