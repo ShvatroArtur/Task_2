@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using Task2.Interface;
 
@@ -9,7 +8,6 @@ namespace Task2.Model
     {
         private List<IElementSentence> elementsSentence;
         public List<IElementSentence> ElementsSentence { get => elementsSentence; private set { } }
-
         public Sentence(List<IElementSentence> elementsSentece)
         {
             List<IElementSentence> newList = new List<IElementSentence>(elementsSentece.Count);

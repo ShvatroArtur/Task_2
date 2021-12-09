@@ -21,7 +21,7 @@ namespace Task2.Parser
         private char actualCharacter;
         private string dictKey;
         private Dictionary<string, Action> dictActionParser = new Dictionary<string, Action>();
-        private WorkerSentence workerSentence = new WorkerSentence();       
+        private WorkerSentence workerSentence = new WorkerSentence();
         private WorkerPunctuation workerPunctuation = new WorkerPunctuation();
 
 
@@ -73,7 +73,7 @@ namespace Task2.Parser
                 AddPunctuationMarkToSentence();
             }
         }
-        
+
         private char ParsingPunctuationMark(char symbol)
         {
             if (Char.IsPunctuation(symbol))
@@ -88,7 +88,7 @@ namespace Task2.Parser
                     return 's';
             }
         }
-        
+
         private void AddWordToSentence()
         {
             if (bufferLetters.Length != 0)
@@ -149,7 +149,7 @@ namespace Task2.Parser
         }
         private void SpacePunctuationMarkAction()
         {
-            AddPunctuationMarkToBuffer(actualCharacter);            
+            AddPunctuationMarkToBuffer(actualCharacter);
         }
         private void PunctuationMarkPunctuationMarkAction()
         {
@@ -157,13 +157,13 @@ namespace Task2.Parser
         }
 
         private void SymbolPunctuationMarkAction()
-        {           
+        {
             AddPunctuationMarkToBuffer(actualCharacter);
         }
         private void PunctuationMarkSpaceAction()
         {
             AddWordToSentence();
             AddPunctuationMarkToSentence();
-        }   
+        }
     }
 }

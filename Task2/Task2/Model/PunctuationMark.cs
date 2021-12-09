@@ -2,22 +2,26 @@
 
 namespace Task2.Model
 {
-    class PunctuationMark: IElementSentence
+    class PunctuationMark : IElementSentence
     {
-        private bool isEndSentence;      
+        private bool isEndSentence;
+
         public string Value { get; set; }
+
         public PunctuationMark(string value, bool isEndSentence)
         {
             Value = value;
             this.isEndSentence = isEndSentence;
 
         }
+
         public int GetAmountSymbol()
         {
             return Value.Length;
         }
 
         public bool IsEndSentence { get => isEndSentence; private set { } }
+
         public override string ToString()
         {
             return Value;

@@ -22,26 +22,26 @@ namespace Task2.TextReader
                 return false;
             }
 
-        }   
+        }
         public void Read(TextParser parser)
-        { 
-                using (StreamReader sr = new StreamReader(path, System.Text.Encoding.Default))
+        {
+            using (StreamReader sr = new StreamReader(path, System.Text.Encoding.Default))
+            {
+                var isParsing = true;
+                do
                 {
-                    var isParsing = true;
-                    do
+                    if (sr.Peek() > -1)
                     {
-                        if (sr.Peek() > -1)
-                        {
-                            parser.Parsing((char)sr.Read(), isParsing);
-                        }
-                        else
-                        {
-                            isParsing = false;
-                            parser.Parsing(' ', isParsing);
-                        }
+                        parser.Parsing((char)sr.Read(), isParsing);
                     }
-                    while (isParsing);
-                }                
+                    else
+                    {
+                        isParsing = false;
+                        parser.Parsing(' ', isParsing);
+                    }
+                }
+                while (isParsing);
+            }
         }
     }
 }

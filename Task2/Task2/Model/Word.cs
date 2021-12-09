@@ -3,7 +3,7 @@ using Task2.Interface;
 
 namespace Task2.Model
 {
-    class Word:IElementSentence
+    class Word : IElementSentence
     {
         public string Value { get; set; }
 

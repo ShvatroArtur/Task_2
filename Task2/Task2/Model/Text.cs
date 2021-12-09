@@ -5,7 +5,7 @@ namespace Task2.Model
 {
     class Text
     {
-        private List<Sentence> sentences;    
+        private List<Sentence> sentences;
 
         public List<Sentence> Sentences { get => sentences; private set { } }
 
@@ -16,8 +16,8 @@ namespace Task2.Model
         public IEnumerable<Sentence> SortSentences()
         {
             return sentences.OrderBy(x => x.GetAmountWords());
-        }    
-        
+        }
+
         public override string ToString()
         {
 
