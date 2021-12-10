@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Task2.Model;
 
@@ -39,6 +40,7 @@ namespace Task2.Worker
 
         public void ReplaceWordsToSentence(Sentence sentence, int length, string newWordValue)
         {
+            if (sentence == null) throw new ArgumentNullException(nameof(sentence));
             var selectedWord = from word in sentence.ElementsSentence
                                where ((word is Word) && (word.GetAmountSymbol() == length))
                                select word;
@@ -52,7 +54,7 @@ namespace Task2.Worker
         {
             foreach (var sentence in sentences)
             {
-                sentence.ElementsSentence.RemoveAll(x => (x is Word) && (x.GetAmountSymbol() == lengthWord) && (x.FirsLetterIsVowel()));
+                sentence.ElementsSentence.RemoveAll(x => (x is Word) && (x.GetAmountSymbol() == lengthWord) && (x.FirsLetterIsConsonant()));
             }
         }
     }

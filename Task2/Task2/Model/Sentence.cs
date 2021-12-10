@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Task2.Interface;
 
@@ -39,29 +40,25 @@ namespace Task2.Model
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
-            builder.Append(elementsSentence[0].ToString());
-            IElementSentence previousValue = elementsSentence[0];
-            for (int i = 1; i < elementsSentence.Count; i++)
+            if (elementsSentence.Count > 0)
             {
-                if (!(elementsSentence[i] is PunctuationMark))
+                builder.Append(elementsSentence[0].ToString());
+                IElementSentence previousValue = elementsSentence[0];
+                for (int i = 1; i < elementsSentence.Count; i++)
                 {
-                    builder.Append(" ");
+                    if (!(elementsSentence[i] is PunctuationMark))
+                    {
+                        builder.Append(" ");
+                    }
+                    builder.Append(elementsSentence[i].ToString());
                 }
-                builder.Append(elementsSentence[i].ToString());
             }
             return builder.ToString();
         }
 
         public int GetAmountWords()
         {
-            int number = 0;
-            foreach (var elementsSentence in this.elementsSentence)
-            {
-                if (elementsSentence is Word)
-                {
-                    number++;
-                }
-            }
+            int number = elementsSentence.Count(t => t is Word);
             return number;
         }
 

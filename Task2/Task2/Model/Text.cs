@@ -18,10 +18,5 @@ namespace Task2.Model
             return sentences.OrderBy(x => x.GetAmountWords());
         }
 
-        public override string ToString()
-        {
-
-            return base.ToString();
-        }
     }
 }

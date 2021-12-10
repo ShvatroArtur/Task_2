@@ -4,7 +4,7 @@ namespace Task2.Model
 {
     class PunctuationMark : IElementSentence
     {
-        private bool isEndSentence;
+        private readonly bool isEndSentence;
 
         public string Value { get; set; }
 
@@ -27,7 +27,7 @@ namespace Task2.Model
             return Value;
         }
 
-        public bool FirsLetterIsVowel()
+        public bool FirsLetterIsConsonant()
         {
             return false;
         }

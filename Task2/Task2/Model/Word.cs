@@ -16,14 +16,18 @@ namespace Task2.Model
 
         public Word(string value) => Value = value;
 
-        public bool FirsLetterIsVowel()
+        public bool FirsLetterIsConsonant()
         {
-            string key = @"[aeiou]";
-            if (!(Regex.Matches(Value[0].ToString(), key).Count > 0))
+            if (Value.Length != 0)
             {
-                return true;
+                string key = @"[aeiou]";
+                if (!(Regex.Matches(Value[0].ToString(), key).Count > 0))
+                {
+                    return true;
+                }
+                else return false;
             }
-            else return false;
+            return false;
         }
     }
 }

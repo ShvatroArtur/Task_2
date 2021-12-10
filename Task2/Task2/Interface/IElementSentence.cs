@@ -4,6 +4,6 @@
     {
         string Value { get; set; }
         int GetAmountSymbol();
-        bool FirsLetterIsVowel();
+        bool FirsLetterIsConsonant();
     }
 }

@@ -6,10 +6,13 @@ namespace Task2.TextReader
 {
     class Reader
     {
-        private string path;
-        public Reader(string path)
+        private readonly string path;
+        private readonly TextParser parser;
+
+        public Reader(string path, TextParser parser)
         {
             this.path = path;
+            this.parser = parser;
         }
         public bool ExistsFile()
         {
@@ -23,7 +26,7 @@ namespace Task2.TextReader
             }
 
         }
-        public void Read(TextParser parser)
+        public void Read()
         {
             using (StreamReader sr = new StreamReader(path, System.Text.Encoding.Default))
             {
